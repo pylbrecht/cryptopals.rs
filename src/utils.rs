@@ -9,6 +9,13 @@ pub fn xor<'a>(a: &'a [u8], b: &'a [u8]) -> Vec<u8> {
     a.iter().zip(b.iter()).map(|(&x, &y)| x ^ y).collect()
 }
 
+pub fn score(plaintext: &str) -> usize {
+    plaintext
+        .chars()
+        .filter(|&c| "ETAOIN SHRDLU".contains(c))
+        .count()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -25,5 +32,11 @@ mod tests {
         let b = hex::decode("686974207468652062756c6c277320657965").unwrap();
         let result = hex::decode("746865206b696420646f6e277420706c6179").unwrap();
         assert_eq!(xor(&a, &b), result);
+    }
+
+    #[test]
+    fn test_score() {
+        assert_eq!(score("ETAOIN SHRDLU"), 13);
+        assert_eq!(score("X"), 0);
     }
 }
