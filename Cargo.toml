@@ -5,3 +5,4 @@ authors = ["P. Albrecht <palbrecht@mailbox.org>"]
 
 [dependencies]
 base64 = "*"
+hex = "*"
