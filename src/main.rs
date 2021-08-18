@@ -1,5 +1,7 @@
+mod set01;
 mod utils;
 
 fn main() {
-    println!("Hello, world!");
+    let plaintext = set01::challenge3();
+    println!("{:?}", plaintext);
 }
